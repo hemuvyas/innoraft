@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @file
+ * Inserts the data into the database.
+ */
+
 include ('connection.php');
 $username = $_SESSION['username'];
 mysqli_select_db($con, 'blog');

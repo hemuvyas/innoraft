@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @file
+ * It contains the connection file code of MVC blogs.
+ */
+
 $servername = "localhost";
 $username = "root";
 $password = "";

@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @file
+ * Deletes the blog from database with specific blog id.
+ */
+
 include 'connection.php';
 mysqli_select_db($con, 'blog');
 $q = "DELETE FROM blog WHERE id = '$id'";

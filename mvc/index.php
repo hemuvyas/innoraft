@@ -1,32 +1,39 @@
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .container{
-    width: 90%;
-    margin: 20px auto;
-    box-shadow:0px 3px 7px #1a1a1a;
-    padding: 10px;
-  }
-  .container h5{
-    margin-top: 10px;
-  }
-</style>
 <?php
-$controller = 'home';
+
+/**
+ * @file
+ * provides routing for the mvc blog application.
+ */
+
+// Setting the default values for controller and function if not provided.
+$controller = 'Home';
 $function = 'home';
-if (isset ($_GET['controller']) && $_GET['controller'] != '') {
+
+// Getting the values of controller from url.
+if (isset($_GET['controller']) && $_GET['controller'] != '') {
   $controller = $_GET['controller'];
 }
-if (isset ($_GET['function']) && $_GET['function'] != '') {
+
+// Getting the values of function from url.
+if (isset($_GET['function']) && $_GET['function'] != '') {
   $function = $_GET['function'];
 }
-session_start ();
-include ('view/header.php');
-include ('controllers/'.$controller.'Controller.php');
-$class = $controller.'Controller';
-$obj = new $class;
-$obj -> $function ();
+session_start();
+
+// Including header for mvc project.
+include('view/header.php');
+
+// Including the required controller file.
+include('controllers/' . $controller . 'Controller.php');
+$class = $controller . 'Controller';
+$obj = new $class();
+$obj->$function();
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <title></title>
+</head>
+</html>
+
