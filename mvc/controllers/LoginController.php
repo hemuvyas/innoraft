@@ -18,7 +18,7 @@ class LoginController {
   }
 
 // If user credentials are correct then redirect to his own blogs page else enter the details again.
-function validate($abc) {
+function validate() {
  include ('model/loginModel.php');
  while ($temp = mysqli_fetch_array ($res)) {
    if ($temp['username'] == $_POST['username'] && $temp['password'] == $_POST['password']) {
