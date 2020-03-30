@@ -5,7 +5,7 @@
  * provides routing for the mvc blog application.
  */
 
-// Setting the default values for controller and function if not provided.
+
 $controller = 'Home';
 $function = 'home';
 
@@ -23,12 +23,23 @@ session_start();
 // Including header for mvc project.
 include('view/header.php');
 
-// Including the required controller file.
-include('controllers/' . $controller . 'Controller.php');
-$class = $controller . 'Controller';
-$obj = new $class();
-$obj->$function();
+// Including the required controller and functions file, if not exist then shown error.
+if (file_exists('controllers/' . $controller . 'Controller.php')) {
+  include('controllers/' . $controller . 'Controller.php');
+  $class = $controller . 'Controller';
+  $obj = new $class();
+  if (method_exists($obj, $function)) {
+    $obj->$function();
+  }
+  else {
+    include('view/error.php');
+  }
+}
+else {
+  include('view/error.php');
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
