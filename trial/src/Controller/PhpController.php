@@ -85,12 +85,12 @@ class PhpController
     $movie = \Drupal::request()->query->get('word');
     if ($movie == NULL) {
       $query = \Drupal::entityQuery('node')
-          ->condition('type', 'movie');
+      ->condition('type', 'movie');
     }
     else {
       $query = \Drupal::entityQuery('node')
-          ->condition('type', 'movie')
-          ->condition('title', $movie, 'CONTAINS');
+      ->condition('type', 'movie')
+      ->condition('title', $movie, 'CONTAINS');
     }
     $nids = $query->execute();
     // kint($nids);
@@ -148,4 +148,9 @@ class PhpController
     // return "hello world";
   }
 
+
 }
+
+
+
+

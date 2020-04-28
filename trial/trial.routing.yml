@@ -21,3 +21,4 @@ trial_form:
     _title: 'Movies list'
   requirements:
     _permission: 'access content'
+
