@@ -1,0 +1,28 @@
+<table class="border">
+  <thead>
+    <tr>
+      <th>Movie Name</th>
+      <th>Movie Poster</th>
+      <th class="center">Description</th>
+      <th>Role of Actor</th>
+      <th>Co-Stars</th>
+      <th>Movie Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+      <tr>
+        <td><a href = "/node/{{ item.nid }}">{{ item.name }}</td>
+        <td><img src="{{ item.poster }}"></td>
+        <td>{{ item.des }}</td>
+        <td>{{ item.role }}</td>
+        <td>
+          {% for x in item.costars %}
+            <a href="#">{{ x.name }}</a><br>
+          {% endfor %}
+        </td>
+        <td>{{ item.ratings }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
