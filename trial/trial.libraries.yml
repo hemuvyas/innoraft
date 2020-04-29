@@ -1,0 +1,10 @@
+movie_css:
+  version: 2.0
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/popup.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.dialog.ajax

@@ -1,4 +1,9 @@
 <?php
+function trial_page_attachements(array &$page)
+{
+  $page['#attached']['library'][] = 'trial/movie_css';
+}
+
 function trial_theme($existing, $type, $theme, $path) {
   return array(
     'actor_list' => array(
@@ -7,9 +12,14 @@ function trial_theme($existing, $type, $theme, $path) {
     'movie_list' => array(
       'variables' => array('items' => array(), 'title' => '')
     ),
+    'movie_block_actor' => array(
+      'variables' => array('items' => array(), 'title' => '')
+    ),
     'trial_filter' => array(
       'render element' => 'form',
     ),
   );
 }
+
+
 ?>
