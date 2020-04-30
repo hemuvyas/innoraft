@@ -148,9 +148,103 @@ class PhpController
     // return "hello world";
   }
 
+  public function costar($movie=NULL, $nid=NULL)
+  {
+    $node = Node::load($movie);
+    $target_id = array();
+    $target_id = $node->field_actor_role->getValue();
+    foreach ($target_id as $value) {
+      $paragraph = Paragraph::load($value['target_id']);
+      $actor_id = $paragraph->field_actor->target_id;
+      if ($actor_id == $nid) {
+        $role = $paragraph->field_role->value;
+        $actor = Node::load($actor_id);
+        // kint($actor);
+        $node_image_fid = $actor->field_actor_image->target_id;
+        $image_entity = \Drupal\file\Entity\File::load($node_image_fid);
+        $image_entity_url = $image_entity->url();
+        $node_title = $actor->title->value;
+      }
+    }
+    $items = [
+      'name' => $node_title,
+      'image' => $image_entity_url,
+      'role' => $role,
+    ];
+    $resp = json_encode($items);
+    return $resp;
+  }
 
 }
 
 
 
+// public function costar($movie=NULL, $nid=NULL) {
+//   $node = Node::load($movie);
+//   $target_id = array();
+//   $target_id = $node->field_actor_role->getValue();
+//   foreach ($target_id as $value) {
+//     $paragraph = Paragraph::load($value['target_id']);
+//     $actor_id = $paragraph->field_actor->target_id;
+//     if($actor_id == $nid) {
+//       $role = $paragraph->field_role->value;
+//       $actor = Node::load($actor_id);
+//       $node_image_fid = $actor->field_dp->target_id;
+//       if ( !is_null($node_image_fid) ){
+//         $image_entity = \Drupal\file\Entity\File::load($node_image_fid);
+//         $image_entity_url = $image_entity->url();
+//       }
+//       else{
+//         $image_entity_url = "/sites/default/files/default_images/obama.jpg";
+//       }
+//       $node_title = $actor->title->value;
+//       $actors['nid'] = $actor->nid->value;
+//     }
+//   }
+//   $items = [
+//    'name' => $node_title,
+//    'image' => $image_entity_url,
+//    'role' => $role,
+//  ];
+//  return new JsonResponse($items);
+// }
 
+
+// public function costar($movie=NULL, $nid=NULL) {
+//   $node = Node::load($movie);
+//   $target_id = $node->get('field_paragraph')->target_id;
+//   $paragraph = Paragraph::load($target_id);
+//   $values = array();
+//   $array = $paragraph->field_actor->getValue();
+//   foreach($array as $value) {
+//     if(isset($value['target_id'])) {
+//       $values[] = $value['target_id'];
+//     }
+//   }
+//   $no = 0;
+//   $actor = array();
+//   foreach($values as $value) {
+//     $node = Node::load($value);
+//     if($value == $nid) {
+//       $roles = $paragraph->field_role->getValue();
+//       $role = $roles[$no]['value'];
+//       $node_title = $node->title->value;
+//       $node_image_fid = $node->get('field_actor_image')->target_id;
+//       if(!is_null($node_image_fid)) {
+//         $image_entity = \Drupal\file\Entity\File::load($node_image_fid);
+//         $image_entity_url = $image_entity->url();
+//       }
+//       else {
+//         $image_entity_url = "/sites/default/files/default_images/obama.jpg";
+//       }
+//     }
+//     $no++;
+//   }
+//   $items = [
+//    'name' => $node_title,
+//    'image' => $image_entity_url,
+//    'role' => $role,
+//  ];
+//  return new JsonResponse($items);
+// }
+// }

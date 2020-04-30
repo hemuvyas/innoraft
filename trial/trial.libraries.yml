@@ -7,4 +7,3 @@ movie_css:
     js/popup.js: {}
   dependencies:
     - core/jquery
-    - core/drupal.dialog.ajax

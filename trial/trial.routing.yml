@@ -22,3 +22,10 @@ trial_form:
   requirements:
     _permission: 'access content'
 
+trial_coactor:
+  path: '/coactor/{movie}/{nid}'
+  defaults:
+    _controller: '\Drupal\trial\Controller\PhpController::costar'
+    _title: 'Co-Star'
+  requirements:
+    _permission: 'access content'
