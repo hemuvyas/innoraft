@@ -1,0 +1,31 @@
+trial_actor:
+  path: '/trial'
+  defaults:
+    _controller: '\Drupal\trial\Controller\PhpController::getlatestactor'
+    _title: 'actors list with their recent movies'
+  requirements:
+    _permission: 'access content'
+
+trial_movie:
+  path: '/movies'
+  defaults:
+    _controller: '\Drupal\trial\Controller\PhpController::movielist'
+    _title: 'movies database'
+  requirements:
+    _permission: 'access content'
+
+trial_form:
+  path: '/filter'
+  defaults:
+    _form: '\Drupal\trial\Form\SearchByName'
+    _title: 'Movies list'
+  requirements:
+    _permission: 'access content'
+
+trial_coactor:
+  path: '/coactor/{movie}/{nid}'
+  defaults:
+    _controller: '\Drupal\trial\Controller\PhpController::costar'
+    _title: 'Co-Star'
+  requirements:
+    _permission: 'access content'
