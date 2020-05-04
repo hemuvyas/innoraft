@@ -1,0 +1,9 @@
+movie_css:
+  version: 2.0
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/modal.js: {}
+  dependencies:
+    - core/jquery
