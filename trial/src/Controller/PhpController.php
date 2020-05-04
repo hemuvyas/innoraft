@@ -148,6 +148,32 @@ class PhpController
     // return "hello world";
   }
 
+  public function costar($movie=NULL, $nid=NULL)
+  {
+    $node = Node::load($movie);
+    $target_id = array();
+    $target_id = $node->field_actor_role->getValue();
+    foreach ($target_id as $value) {
+      $paragraph = Paragraph::load($value['target_id']);
+      $actor_id = $paragraph->field_actor->target_id;
+      if ($actor_id == $nid) {
+        $role = $paragraph->field_role->value;
+        $actor = Node::load($actor_id);
+        // kint($actor);
+        $node_image_fid = $actor->field_actor_image->target_id;
+        $image_entity = \Drupal\file\Entity\File::load($node_image_fid);
+        $image_entity_url = $image_entity->url();
+        $node_title = $actor->title->value;
+      }
+    }
+    $items = [
+      'name' => $node_title,
+      'image' => $image_entity_url,
+      'role' => $role,
+    ];
+    $resp = json_encode($items);
+    return $resp;
+  }
 
 }
 

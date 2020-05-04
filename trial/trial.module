@@ -1,6 +1,5 @@
 <?php
-function trial_page_attachements(array &$page)
-{
+function trial_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'trial/movie_css';
 }
 
