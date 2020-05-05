@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <h1> {{ title }} </h1>
 {{ items['form'] }}
 <table class="table table-dark">
@@ -23,7 +25,15 @@
           <a href={{ x.urls }}>{{ x.name }}</a>
         {% endfor %}
         </td>
-        <td>{{ item.rating }}</td>
+        <td width=103px>
+        <p>{{ item.rating }}</p>
+        {% for star in range(1,item.rating) %}
+          <span class="fa fa-star checked"></span>
+        {% endfor %}
+        {% if item.halfStarFlag %}
+          <i class="fa fa-star-half checked"></i>
+        {% endif %}
+        </td>
       </tr>
     {% endfor %}
   </tbody>
