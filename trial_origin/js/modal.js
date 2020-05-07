@@ -21,7 +21,7 @@
               console.log(response);
               $(".modal-title").html(response.name);
               $(".modal-body img ").attr("src",response.image);
-              $(".modal-body p").html(response.role);
+              $(".modal-role").html(response.role);
               // When clicked on costar name costar pop up will open.
               $('.modal').show();
               // when click on close button hide the pop-up

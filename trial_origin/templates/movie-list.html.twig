@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<h1> {{ title }} </h1>
-{{ items['form'] }}
+{{ form }}
 <table class="table table-dark">
   <thead>
     <tr>
@@ -18,7 +17,7 @@
       <tr>
         <td><a href={{ item.url_movie }}>{{ item.name }}</td>
         <td><img src=" {{ item.url }}"></td>
-        <td>{{ item.desc }}</td>
+        <td>{{ item.desc|render|striptags }}</td>
         <td>{{ item.date }}</td>
         <td>
         {% for x in item.cast %}
@@ -26,10 +25,11 @@
         {% endfor %}
         </td>
         <td width=103px>
-        <p>{{ item.rating }}</p>
-        {% for star in range(1,item.rating) %}
-          <span class="fa fa-star checked"></span>
-        {% endfor %}
+        {% if item.rating >= 1 %}
+          {% for star in range(1,item.rating) %}
+            <span class="fa fa-star checked"></span>
+          {% endfor %}
+        {% endif %}
         {% if item.halfStarFlag %}
           <i class="fa fa-star-half checked"></i>
         {% endif %}

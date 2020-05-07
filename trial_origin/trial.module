@@ -9,7 +9,7 @@ function trial_theme($existing, $type, $theme, $path) {
       'variables' => array('items' => array(), 'title' => '')
     ),
     'movie_list' => array(
-      'variables' => array('items' => array(), 'title' => '')
+      'variables' => array('items' => array(), 'title' => '', 'form' => array())
     ),
     'movie_block_actor' => array(
       'variables' => array('items' => array(), 'title' => '')
