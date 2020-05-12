@@ -29,3 +29,11 @@ trial_coactor:
     _title: 'Co-Star'
   requirements:
     _permission: 'access content'
+
+trial.admin_settings:
+  path: '/admin/config/your_module'
+  defaults:
+    _form: '\Drupal\your_module\Form\ModuleConfigurationForm'
+    _title: 'your_module configuration screen'
+  requirements:
+    _permission: 'administer site configuration'

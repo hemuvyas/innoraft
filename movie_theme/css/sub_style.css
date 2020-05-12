@@ -7,3 +7,6 @@
   -o-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+#block-sitebranding-2 img{
+    height: 60px;
+}

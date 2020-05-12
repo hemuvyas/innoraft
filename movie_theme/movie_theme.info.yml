@@ -1,6 +1,6 @@
 name: Bartik-sub
 type: theme
-base theme: bartik
+base theme: newsplus_lite
 description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
 package: Core
 version: VERSION
@@ -13,22 +13,23 @@ ckeditor_stylesheets:
   - css/components/table.css
   - css/components/text-formatted.css
 regions:
-  header: Header
-  primary_menu: 'Primary menu'
-  secondary_menu: 'Secondary menu'
-  page_top: 'Page top'
-  page_bottom: 'Page bottom'
-  highlighted: Highlighted
-  featured_top: 'Featured top'
-  breadcrumb: Breadcrumb
-  content: Content
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar second'
-  featured_bottom_first: 'Featured bottom first'
-  featured_bottom_second: 'Featured bottom second'
-  featured_bottom_third: 'Featured bottom third'
-  footer_first: 'Footer first'
-  footer_second: 'Footer second'
-  footer_third: 'Footer third'
-  footer_fourth: 'Footer fourth'
-  footer_fifth: 'Footer fifth'
+  pre_header_left: 'Pre Header Left'
+  pre_header_right: 'Pre header Right'
+  header_top_left: 'Header Top Left'
+  header_top_right: 'Header Top Right'
+  navigation: 'Navigation'
+  header: 'Header'
+  page_intro: 'Page Intro'
+  top_content: 'Top Content'
+  banner: 'Banner'
+  highlighted: 'Highlighted'
+  promoted: 'Promoted Area'
+  content: 'Content'
+  sidebar_first: 'First Sidebar'
+  sidebar_second: 'Second Sidebar'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  sub_footer_left: 'Subfooter Left'
+  footer: 'Subfooter Right'

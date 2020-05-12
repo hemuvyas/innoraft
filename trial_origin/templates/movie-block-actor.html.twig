@@ -1,4 +1,8 @@
-<table class="border">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% if items.empty %}
+  <h1 class="center">{{ items.empty }}</h1>
+{% else %}
+  <table class="border">
   <thead>
     <tr>
       <th>Movie Name</th>
@@ -14,18 +18,29 @@
       <tr>
         <td><a href = "/node/{{ item.nid }}">{{ item.name }}</td>
         <td><img src="{{ item.poster }}"></td>
-        <td>{{ item.des }}</td>
+        <td>{{ item.des|render|striptags }}</td>
         <td>{{ item.role }}</td>
         <td>
           {% for x in item.costars %}
             <a href="#" class="coactor" actor-id={{ x.nid }} movie-id={{ item.nid }}>{{ x.name }}</a><br>
           {% endfor %}
         </td>
-        <td>{{ item.ratings }}</td>
+        <td width=100px>
+        {% if item.ratings >= 1 %}
+          {% for star in range(1,item.ratings) %}
+            <span class="fa fa-star checked"></span>
+          {% endfor %}
+        {% endif %}
+        {% if item.halfStarFlag %}
+          <i class="fa fa-star-half checked"></i>
+        {% endif %}
+        </td>
       </tr>
     {% endfor %}
   </tbody>
-</table>
+  </table>
+{% endif %}
+
 
 
 <div class="modal">

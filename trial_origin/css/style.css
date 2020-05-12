@@ -1,8 +1,3 @@
-.border{
-  border: 5px solid blue;
-  padding: 10px;
-  color: red;
-}
 .center{
   text-align: center;
 }
@@ -65,39 +60,25 @@
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #ea2d49;
   color: white;
 }
 
 .modal-body {
   padding: 2px 16px;
+  height: 170px;
 }
-
-
-
-.glyphicon-star {
-   font-size: 14px;
-   color: #E67E22;
+.modal-role{
+  background-color: #c0273c;
+  color: white;
+  position: absolute;
+  top: 16px;
+  left: 150px;
+  width: 900px;
+  height: 140px;
+  text-align: center;
+  padding: 10px;
 }
- .glyphicon-star.half {
-   position: relative;
-}
- .glyphicon-star.half:before {
-   position: relative;
-   z-index: 9;
-   width: 47%;
-   display: block;
-   overflow: hidden;
-}
- .glyphicon-star.half:after {
-   content: "\e006";
-   position: absolute;
-   z-index: 8;
-   color: #BDC3C7;
-   top: 0;
-   left: 0;
-}
-
 .checked {
   color: orange;
 }
