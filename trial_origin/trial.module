@@ -17,6 +17,9 @@ function trial_theme($existing, $type, $theme, $path) {
     'trial_filter' => array(
       'render element' => 'form',
     ),
+    'home_block' => array(
+      'variables' => array('items' => array(), 'title' => '')
+    ),
   );
 }
 

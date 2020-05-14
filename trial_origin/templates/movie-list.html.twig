@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     {% for item in items %}
-      <tr>
+      <tr class="highlight">
         <td><a href={{ item.url_movie }}>{{ item.name }}</td>
         <td><img src=" {{ item.url }}"></td>
         <td>{{ item.desc|render|striptags }}</td>

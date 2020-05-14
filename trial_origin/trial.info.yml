@@ -4,3 +4,4 @@ description: 'Example for Drupal 8 modules.'
 package: custom
 version: 8.x
 core: 8.x
+configure: trial.admin_settings
